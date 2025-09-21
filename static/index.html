@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stressed out?</title>
+    <title>Peace Harbor - Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <h2>Peace Harbor</h2>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#mood">Mood</a></li>
+                <li><a href="#wins">Wins</a></li>
+                <li><a href="#journal">Journal</a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <section id="home" class="page active">
+                <h1>Home Page</h1>
+                <p>Welcome. You're probably bothered by something in your life if you're here. 
+                    This place is to calm your emotions, mind and thoughts. Kind of 
+                    like a mental well-being corner.
+                </p>
+            </section>
+
+            <section id="mood" class="page">
+                <h1>Mood Logging</h1>
+                <p>The "Mood Logger" encourages you to log however you feel right now.
+                    By logging more moods when you feel like it, you can see how your
+                    mood trends over days and weeks.
+                </p>
+            </section>
+
+            <section id="wins" class="page">
+                <h1>Wins</h1>
+                <p>The "Win Tracker" wants you to log your "wins" you have done lately.
+                    Any positive action in your life can be a win, even throwing out the trash
+                    or cooking a simple breakfast for yourself instead of starving.
+                </p>
+            </section>
+
+            <section id="journal" class="page">
+                <h1>Journal</h1>
+                <p>This is your journal. You are allowed to log whatever is in your mind right now.
+                    Typing down your thoughts can help bring order in your mind instead of struggling
+                    with several anxiety-inducing thoughts.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Simple page switching
+        const links = document.querySelectorAll(".sidebar a");
+        const pages = document.querySelectorAll(".page");
+
+        links.forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                // Remove active from links
+                links.forEach(l => l.classList.remove("active"));
+                link.classList.add("active");
+
+                // Show corresponding page
+                const target = link.getAttribute("href").substring(1);
+                pages.forEach(p => p.classList.remove("active"));
+                document.getElementById(target).classList.add("active");
+            });
+        });
+    </script>
 </body>
 </html>
