@@ -24,5 +24,5 @@ class ThoughtEntry(Base):
     __tablename__ = "thought_entries"
     
     id: Mapped[int] = Column(Integer, primary_key=True) #type: ignore
-    mood: Mapped[str] = Column(String, nullable=False) #type: ignore
+    thought: Mapped[str] = Column(String, nullable=False) #type: ignore
     created_at = Column(DateTime, default=datetime.now)
